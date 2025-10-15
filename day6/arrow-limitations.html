@@ -1,0 +1,42 @@
+<script>
+    // Global Scope
+    let user = { // object literals
+        firstName: 'Virat',
+        lastName: 'Kohli',
+        fullName1: function () { // Regular : this - how the function is called
+            console.log('regular: ', this.firstName, this.lastName); // this = user
+        },
+        fullName2: () => { // Arrow : this - where the function is written, outer scope
+            console.log('Arrow: ', this.firstName, this.lastName); // this = window
+        }
+    }
+    user.fullName1();
+    user.fullName2();
+</script>
+
+<html>
+
+<body>
+    <button id="btn1">btn-1</button>
+    <button id="btn2">btn-2</button>
+    <button id="btn3">btn-3</button>
+    <button id="btn4">btn-4</button>
+
+    <script>
+        /*  function changeColor() { // regular : this = how/where its called
+             console.log(this); // this = dynamic (window / Btn1 / Btn2 / Btn3...)
+             this.style.backgroundColor = 'red';
+         } */
+
+        let changeColor = () => { // Arrow : this = where the function is written
+            console.log(this); // this = statis (window)
+        }
+        // changeColor();
+        document.getElementById('btn1').addEventListener('click', changeColor);
+        document.getElementById('btn2').addEventListener('click', changeColor);
+        document.getElementById('btn3').addEventListener('click', changeColor);
+        document.getElementById('btn4').addEventListener('click', changeColor);
+    </script>
+</body>
+
+</html>

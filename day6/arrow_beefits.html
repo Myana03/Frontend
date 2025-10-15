@@ -1,0 +1,33 @@
+<script>
+    class Student{
+        firstName = 'Virat';
+        lastName = 'Kohli';
+
+        constructor(name,age){
+            this.name=name;
+            this.age=age;
+        }
+        regularFunction(){
+            console.log(`reg func`,this);//this is pointed to how and where the function is called
+        }
+        arrowFunction=()=>{
+            console.log(`arrow func`,this);//this refers to the context where the arrow function is defined
+        }
+    }
+
+     let std = new Student();
+    std.regularFunction(); // Virat Kohli
+    std.arrowFunction();  // Virat Kohli
+
+    let a = std.arrowFunction;
+    a();
+    let b = a;
+    // b();
+    // let c = b;
+    // c();
+
+    let x = std.regularFunction;
+    x();
+    let y = x;
+    y();
+</script>
