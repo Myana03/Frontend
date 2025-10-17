@@ -1,10 +1,10 @@
 <script>
     console.log(this);// In a browser, this logs the Window object because we used console in global context
     function regularFunction() {
-        console.log(`reg func`,this);
+        console.log(`reg func`,this);//this is pointed to how and where the function is called
     }
     regularFunction();// In a browser, this logs the Window object because regularFunction is called in global context
 
-    let arrow=()=>{console.log(`arrow func`,this)};
+    let arrow=()=>{console.log(`arrow func`,this)};//this refers to the context where the arrow function is defined
     arrow();// In a browser, this logs the Window object because arrow functions do not have their
 </script>
