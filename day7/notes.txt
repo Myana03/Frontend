@@ -1,0 +1,109 @@
+
+
+**IIFE / Self Invoked**
+
+* Immediately Invoked Function Expression.
+* Used to invoke a function only once when the page loads.
+* Helpful to initialize data or create private scope.
+
+---
+
+**Function Currying**
+
+* Function Currying means breaking a function with many arguments into multiple functions with a single argument in such a way that the final output remains the same.
+* It simplifies multi-parameter functions into smaller ones.
+* Helps create higher-order functions and is useful in event handling.
+
+```js
+var add = function(a){
+    return function(b){
+        return function(c){
+            return a + b + c;
+        }
+    }
+}
+console.log(add(2)(3)(4)); // 9
+```
+
+---
+
+**Pure Function**
+
+* A pure function takes input and returns output without modifying any external data (no side effects).
+* Conditions for pure function:
+
+  1. Should not update or change anything outside its scope.
+  2. Must return a value.
+  3. Output should depend only on input/arguments.
+
+---
+
+**Higher-Order Function**
+
+* A function that can receive another function as an argument or can return another function.
+* Two main abilities:
+
+  1. Takes a function as input.
+  2. Returns a function as output.
+* Example: `map()`, `filter()`, `reduce()`, `sort()`.
+* **Higher-Order**: Function that takes another function.
+* **Callback**: Function passed as an argument to another function.
+
+---
+
+**Function Recursion**
+
+* A recursive function calls itself until a certain condition is met.
+* Must include a base condition to stop, or else it throws: *“RangeError: Maximum call stack size exceeded”*.
+* Used where loop count is unknown.
+
+```js
+function countDown(fromNumber){
+    console.log(fromNumber);
+    let nextNumber = fromNumber - 1;
+    if(nextNumber > 0){
+        countDown(nextNumber);
+    }
+}
+countDown(5);
+```
+
+---
+
+**Memoization**
+
+* A programming technique used to increase performance by **caching** results of previous computations.
+* When the same inputs occur again, it returns the stored result instead of recalculating.
+* Often used with recursive functions to optimize speed.
+* It’s a kind of data caching.
+
+---
+
+**Function Closure**
+
+
+if inner function can access variables of the outer function even after the outer function has completed execution.
+* Closure keeps the variables “alive” and accessible to the inner function.
+* Used for data privacy and encapsulation.
+
+// outer functions will never have closure scope
+    // inner function will have closure scope, only if inner function accesses outer function data
+
+```js
+function outer(){
+    let count = 0;
+    return function(){
+        count++;
+        console.log(count);
+    }
+}
+const increment = outer();
+increment(); //1
+increment(); //2
+```
+
+**Note:**
+
+* Closures give functions access to outer scope variables even after execution.
+* Modern JS supports encapsulation using classes and `#private` fields, but closures are still useful in functional programming.
+* **Disadvantage:** If multiple closures stay active, memory can’t be garbage-collected until all are done, which can cause memory leaks.

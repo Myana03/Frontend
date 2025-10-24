@@ -32,6 +32,7 @@ let map1=input1.split('').reduce((b,n)=>{
     }
     return b;
 },{});
+
 for(let char in map1){
     if(map1[char]===maxCount){
         maxChar=char;
@@ -131,6 +132,7 @@ console.log(true)
 
 function permutations(str){
   const result=[];
+  //base condtn
   if(str.length===1){
     return [str];
   }

@@ -75,7 +75,7 @@ console.log(firstNonRepeatedChar_alt('aabbcc')); // Should return null
 function toTitleCase(sentence) {
     return sentence
         .split(' ')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ');
 }
 
