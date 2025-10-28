@@ -9,6 +9,11 @@ function reverseString(str) {
     }
     return reversed;
 }
+let input='sachin'
+let x=input.split('').reduce((acc,i)=>{
+    return i+acc
+},'')
+console.log(x)
 
 console.log(reverseString('sachin'));
 console.log(reverseString('this is javascript class'));
@@ -110,12 +115,11 @@ function maskAccountNumber(accountNumber) {
     if (accountNumber.length <= 4) {
         return accountNumber; // Not enough digits to mask
     }
-}
     
     const firstTwo = accountNumber.slice(0, 2);
     const lastTwo = accountNumber.slice(-2);
     const maskedSection = '*'.repeat(accountNumber.length - 4);
-   
+}
 // 7. WAP to print Credit-card number
 //    input:- '1111222233334444'
 //    output:- '1111-2222-3333-4444'
